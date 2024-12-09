@@ -44,15 +44,17 @@ func main() {
 	sort.Ints(col1)
 	sort.Ints(col2)
 
-	var dist, total int
-	for i, _ := range col1 {
-		dist = col1[i] - col2[i]
-		if dist < 0 {
-			dist = dist * -1
+	var score int
+	m := make(map[int]int)
+
+	for _, val := range col2 {
+		m[val]++
+	}
+	for _, c1 := range col1 {
+		if val, ok := m[c1]; ok {
+			score += c1 * val
 		}
-		fmt.Print(dist, "\n ")
-		total += dist
 	}
 
-	fmt.Printf("distance total = %v\n", total)
+	fmt.Printf("sim score total = %v\n", score)
 }
