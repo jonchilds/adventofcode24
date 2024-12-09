@@ -10,12 +10,10 @@ import (
 )
 
 func main() {
-	// Specify the path to the file you want to process
-	filePath := "input1_a.txt"
 	var col1, col2 []int
 
 	// Open the file
-	file, err := os.Open(filePath)
+	file, err := os.Open("../input1_a.txt")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
